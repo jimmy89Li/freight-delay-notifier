@@ -8,6 +8,15 @@ export async function getTrafficDelay(route: RouteInfo): Promise<TrafficDelay> {
     &origins=${encodeURIComponent(route.origin)}`;
 
   try {
+    // // Mock 0-59 min. delay for now.
+    // const mockedDelay = Math.floor(Math.random() * 60);
+    // console.log(`[Traffic] Estimated delay: ${mockedDelay} minutes.`);
+    // // Return the mocked delay.
+    // return {
+    //   estimatedDelayMinutes: mockedDelay,
+    //   status: 'OK',
+    // };
+
     // Try to fetch the response from Google Maps.
     const response = await fetch(googleMapsUrl);
     console.log('[Traffic] Checking Google Maps...');
