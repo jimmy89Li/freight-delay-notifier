@@ -1,5 +1,5 @@
 // Define the route info interface.
-interface RouteInfo {
+export interface RouteInfo {
   origin: string;
   destination: string;
 }
