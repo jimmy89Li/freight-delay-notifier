@@ -1,0 +1,2 @@
+// Define the task queue name.
+export const TASK_QUEUE_NAME = 'freight-delay';
