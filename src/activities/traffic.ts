@@ -1,6 +1,3 @@
-// Load the environment variables.
-import 'dotenv/config';
-
 // Define the route info interface.
 interface RouteInfo {
   origin: string;

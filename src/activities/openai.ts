@@ -1,6 +1,3 @@
-// Load the environment variables.
-import 'dotenv/config';
-
 // Import the OpenAI API client.
 import OpenAI from 'openai';
 

@@ -1,6 +1,3 @@
-// Load the environment variables.
-import 'dotenv/config';
-
 // Define the notification status interface.
 interface Notification {
   success: boolean;
