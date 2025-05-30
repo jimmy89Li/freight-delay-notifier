@@ -48,9 +48,6 @@ GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 OPENAI_API_KEY=your_openai_api_key
 ```
 
-Note: Environment variables are used in activities and clients. Workflows do not
-have access to `process.env`.
-
 ## Docker Services
 
 - **postgres**: PostgreSQL database for Temporal
