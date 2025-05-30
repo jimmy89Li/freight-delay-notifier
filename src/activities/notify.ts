@@ -1,9 +1,4 @@
-// Define the notification status interface.
-interface Notification {
-  success: boolean;
-  provider: 'sendgrid' | 'twilio' | 'mock';
-  errorMessage?: string;
-}
+import { Notification } from '../types';
 
 // Send notification to customer.
 export async function sendNotification(message: string): Promise<Notification> {

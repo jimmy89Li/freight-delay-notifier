@@ -1,4 +1,5 @@
 import { proxyActivities } from '@temporalio/workflow';
+import { RouteInfo } from '../types';
 import * as activities from '../activities/index';
 
 const DELAY_THRESHOLD = 30;
@@ -12,7 +13,7 @@ const { getTrafficDelay, generateMessage, sendNotification } = proxyActivities<
 
 // Define the fright delay workflow.
 export async function freightDelayWorkflow(
-  route: activities.RouteInfo
+  route: RouteInfo
 ): Promise<string | undefined> {
   console.log('[Workflow] Starting freight delay check for route:', route);
 

@@ -1,15 +1,4 @@
-// Define the route info interface.
-export interface RouteInfo {
-  origin: string;
-  destination: string;
-}
-
-// Define the traffic delay interface.
-interface TrafficDelay {
-  estimatedDelayMinutes: number;
-  status: 'OK' | 'ERROR';
-  errorMessage?: string;
-}
+import { RouteInfo, TrafficDelay } from '../types';
 
 // Get the traffic delay time in minutes.
 export async function getTrafficDelay(route: RouteInfo): Promise<TrafficDelay> {

@@ -1,12 +1,6 @@
 // Import the OpenAI API client.
 import OpenAI from 'openai';
-
-// Define the AI message interface.
-interface AIMsg {
-  content: string;
-  status: 'OK' | 'FALLBACK';
-  errorMessage?: string;
-}
+import { AIMsg } from '../types';
 
 // Instantiate a new OpenAI client.
 const openai = new OpenAI({
