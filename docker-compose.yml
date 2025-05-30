@@ -1,0 +1,43 @@
+services:
+  postgres:
+    container_name: temporal-postgresql
+    image: postgres:13
+    environment:
+      POSTGRES_USER: temporal
+      POSTGRES_PASSWORD: temporal
+      POSTGRES_DB: temporal
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  temporal:
+    container_name: temporal
+    image: temporalio/auto-setup:1.22
+    environment:
+      DB: postgresql
+      DB_PORT: 5432
+      POSTGRES_USER: temporal
+      POSTGRES_PWD: temporal
+      POSTGRES_SEEDS: postgres
+      TEMPORAL_DB: temporal
+      TEMPORAL_VISIBILITY_DB: temporal
+      TEMPORAL_LOG: debug
+      ENABLE_ES: 'false'
+    ports:
+      - '7233:7233'
+    depends_on:
+      - postgres
+
+  temporal-ui:
+    container_name: temporal-ui
+    depends_on:
+      - temporal
+    environment:
+      TEMPORAL_ADDRESS: temporal:7233
+    image: temporalio/ui:2.17.2
+    ports:
+      - '8080:8080'
+
+volumes:
+  pgdata:
