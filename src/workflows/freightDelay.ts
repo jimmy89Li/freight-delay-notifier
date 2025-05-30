@@ -2,8 +2,6 @@ import { proxyActivities } from '@temporalio/workflow';
 import { RouteInfo } from '../types';
 import * as activities from '../activities/index';
 
-const DELAY_THRESHOLD = 30;
-
 // Load activities.
 const { getTrafficDelay, generateMessage, sendNotification } = proxyActivities<
   typeof activities
@@ -30,7 +28,7 @@ export async function freightDelayWorkflow(
   console.log(`[Workflow] Delay is ${delay.estimatedDelayMinutes} min.`);
 
   // Don't proceed if the traffic delay is below the threshold.
-  if (delay.estimatedDelayMinutes <= DELAY_THRESHOLD) {
+  if (delay.estimatedDelayMinutes <= route.delayThreshold) {
     console.log('[Workflow] Delay under threshold. No notification needed.');
     return;
   }

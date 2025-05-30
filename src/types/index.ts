@@ -2,6 +2,7 @@
 export interface RouteInfo {
   origin: string;
   destination: string;
+  delayThreshold: number;
 }
 
 // Define the traffic delay interface.

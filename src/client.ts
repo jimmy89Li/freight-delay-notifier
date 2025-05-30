@@ -5,6 +5,9 @@ import { Client, Connection } from '@temporalio/client';
 import { TASK_QUEUE_NAME } from './shared';
 import { freightDelayWorkflow } from './workflows/freightDelay';
 
+// Get the delay threshold.
+const DELAY_THRESHOLD = process.env.DELAY_THRESHOLD_MINUTES || 30;
+
 // Configure the client.
 async function run() {
   const connection = await Connection.connect({ address: 'localhost:7233' });
@@ -20,6 +23,7 @@ async function run() {
       {
         origin,
         destination,
+        delayThreshold: Number(DELAY_THRESHOLD),
       },
     ],
   });
